@@ -1,8 +1,10 @@
 package com.morgan.service;
 
-import com.alibaba.dubbo.config.annotation.Service;
+import org.springframework.stereotype.Service;
+
+import com.morgan.pojo.CheckItem;
 
 // CheckItem服務接口
 public interface CheckItemService {
-    
+    public void add(CheckItem CheckItem);
 }
