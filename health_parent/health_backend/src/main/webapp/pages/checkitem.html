@@ -224,9 +224,9 @@
             editFormData: {},//编辑表单数据
             dialogFormVisible: false,//增加表单是否可见
             dialogFormVisible4Edit: false,//编辑表单是否可见
-            rules: {//校验规则
-                code: [{required: true, message: '項目編碼为必填项', trigger: 'blur'}],
-                name: [{required: true, message: '項目名稱为必填项', trigger: 'blur'}]
+            rules: {//校驗規則
+                code: [{required: true, message: '項目編碼為必瑱項', trigger: 'blur'}],
+                name: [{required: true, message: '項目名稱為必瑱項', trigger: 'blur'}]
             },
             openEdit: false,//一个标志变量,标记为是否打开编辑表单
             formDataChange: false,//一个标志变量,标记编辑表单中的数据是否发生改变
@@ -240,32 +240,35 @@
         methods: {
             //编辑
             handleEdit() {
-                if (!this.formDataChange) {
-                    this.$message("数据没有改变");
-                    return;
-                }
-                this.$refs['dataEditForm'].validate((valid) => {
-                    if (valid) {
-                        axios.post("/checkitem/edit.do", this.editFormData).then((res) => {
-                            if (res.data.flag) {
-                                this.$message({
-                                    type: 'success',
-                                    message: res.data.message
-                                });
-                            } else {
-                                this.$message.error(res.data.message);
-                            }
-                        }).finally(() => {
-                            this.findPage();
-                            this.dialogFormVisible4Edit = false;
-                        })
-                    } else {
-                        this.$message.error("表单数据校验失败");
-                    }
-                });
+               
             },
             //添加
-            handleAdd: function () {
+            handleAdd() {
+                // 表單校驗
+                this.$refs["dataAddForm"].validate((valid)=>{
+                    if(valid){
+                        // 表單校驗成功,發送ajax請求,送出數據
+                        console.log(this.formData);
+                        axios.post("/checkitem/add.do", this.formData),then((res)=>{
+                            dialogFormVisible =false;
+                            if (res.data.flag){
+                                this.findPage();
+                                this.$message({
+                                    message: res.data.message,
+                                    type: "success"
+                                });
+                            } else {
+                                this.$message.error(
+                                res.data.message,
+                                );
+                            }
+                        })
+                    }else{
+                        // 校驗不通過
+                        this.$message.error("數據校驗失敗，請檢查輸入訊息是否正確");
+                        return false;
+                    };
+                });
 
             },
             //分页查询
@@ -291,7 +294,6 @@
             },
             //切换页码
             handleCurrentChange(currentPage) {
-                t
             },
 
             showMessage(r) {
