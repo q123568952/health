@@ -1,0 +1,16 @@
+0:0:0:0:0:0:0:1 - - [08/Sep/2023:09:20:35 +0800] "GET /pages/main.html HTTP/1.1" 500 1542 http-bio-82-exec-1 31
+0:0:0:0:0:0:0:1 - - [08/Sep/2023:09:20:35 +0800] "GET /favicon.ico HTTP/1.1" 500 1542 http-bio-82-exec-2 6
+0:0:0:0:0:0:0:1 - - [08/Sep/2023:09:20:56 +0800] "GET /pages/main. HTTP/1.1" 500 1542 http-bio-82-exec-3 3
+0:0:0:0:0:0:0:1 - - [08/Sep/2023:09:20:56 +0800] "GET /favicon.ico HTTP/1.1" 500 1542 http-bio-82-exec-4 4
+0:0:0:0:0:0:0:1 - - [08/Sep/2023:09:25:48 +0800] "GET /pages/main.html HTTP/1.1" 500 1542 http-bio-82-exec-5 5
+0:0:0:0:0:0:0:1 - - [08/Sep/2023:09:25:49 +0800] "GET /favicon.ico HTTP/1.1" 500 1542 http-bio-82-exec-6 4
+0:0:0:0:0:0:0:1 - - [08/Sep/2023:09:29:00 +0800] "GET /pages/main.html HTTP/1.1" 500 1542 http-bio-82-exec-7 4
+0:0:0:0:0:0:0:1 - - [08/Sep/2023:09:29:00 +0800] "GET /favicon.ico HTTP/1.1" 500 1542 http-bio-82-exec-8 3
+0:0:0:0:0:0:0:1 - - [08/Sep/2023:09:29:01 +0800] "GET /pages/main.html HTTP/1.1" 500 1542 http-bio-82-exec-9 5
+0:0:0:0:0:0:0:1 - - [08/Sep/2023:09:29:01 +0800] "GET /favicon.ico HTTP/1.1" 500 1542 http-bio-82-exec-10 3
+0:0:0:0:0:0:0:1 - - [08/Sep/2023:09:29:01 +0800] "GET /pages/main.html HTTP/1.1" 500 1542 http-bio-82-exec-1 4
+0:0:0:0:0:0:0:1 - - [08/Sep/2023:09:29:01 +0800] "GET /favicon.ico HTTP/1.1" 500 1542 http-bio-82-exec-2 3
+0:0:0:0:0:0:0:1 - - [08/Sep/2023:09:29:01 +0800] "GET /pages/main.html HTTP/1.1" 500 1542 http-bio-82-exec-3 4
+0:0:0:0:0:0:0:1 - - [08/Sep/2023:09:29:01 +0800] "GET /favicon.ico HTTP/1.1" 500 1542 http-bio-82-exec-4 4
+0:0:0:0:0:0:0:1 - - [08/Sep/2023:09:29:02 +0800] "GET /pages/main.html HTTP/1.1" 500 1542 http-bio-82-exec-5 4
+0:0:0:0:0:0:0:1 - - [08/Sep/2023:09:29:02 +0800] "GET /favicon.ico HTTP/1.1" 500 1542 http-bio-82-exec-6 4

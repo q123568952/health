@@ -1,0 +1,5 @@
+com\morgan\entity\PageResult.class
+com\morgan\constant\MessageConstant.class
+com\morgan\entity\Result.class
+com\morgan\pojo\CheckItem.class
+com\morgan\pojo\CheckGroup.class
