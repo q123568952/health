@@ -16,34 +16,34 @@
 <body class="hold-transition">
 <div id="app">
     <div class="content-header">
-        <h1>预约管理
-            <small>检查项管理</small>
+        <h1>預約管理
+            <small>檢查項管理</small>
         </h1>
         <el-breadcrumb separator-class="el-icon-arrow-right" class="breadcrumb">
             <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item>预约管理</el-breadcrumb-item>
-            <el-breadcrumb-item>检查项管理</el-breadcrumb-item>
+            <el-breadcrumb-item>預約管理</el-breadcrumb-item>
+            <el-breadcrumb-item>檢查項管理</el-breadcrumb-item>
         </el-breadcrumb>
     </div>
     <div class="app-container">
         <div class="box">
             <div class="filter-container">
-                <el-input placeholder="项目编码/项目名称" v-model="pagination.queryString" style="width: 200px;"
+                <el-input placeholder="項目編碼/項目名稱" v-model="pagination.queryString" style="width: 200px;"
                           class="filter-item"></el-input>
                 <el-button @click="handleCurrentChange(1)" class="dalfBut">查询</el-button>
                 <el-button type="primary" class="butT" @click="handleCreate()">新建</el-button>
             </div>
             <el-table size="small" current-row-key="id" :data="dataList" stripe highlight-current-row>
                 <el-table-column type="index" align="center" label="序号"></el-table-column>
-                <el-table-column prop="code" label="项目编码" align="center"></el-table-column>
-                <el-table-column prop="name" label="项目名称" align="center"></el-table-column>
+                <el-table-column prop="code" label="項目編碼" align="center"></el-table-column>
+                <el-table-column prop="name" label="項目名稱" align="center"></el-table-column>
                 <el-table-column label="适用性别" align="center">
                     <template slot-scope="scope">
                         <span>{{ scope.row.sex == '0' ? '不限' : scope.row.sex == '1' ? '男' : '女'}}</span>
                     </template>
                 </el-table-column>
                 <el-table-column prop="age" label="适用年龄" align="center"></el-table-column>
-                <el-table-column prop="remark" label="项目说明" align="center"></el-table-column>
+                <el-table-column prop="remark" label="項目说明" align="center"></el-table-column>
                 <el-table-column label="操作" align="center">
                     <template slot-scope="scope">
                         <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">编辑</el-button>
@@ -63,17 +63,17 @@
             </div>
             <!-- 新增标签弹层 -->
             <div class="add-form">
-                <el-dialog title="新增检查项" :visible.sync="dialogFormVisible">
+                <el-dialog title="新增檢查項" :visible.sync="dialogFormVisible">
                     <el-form ref="dataAddForm" :model="formData" :rules="rules" label-position="right"
                              label-width="100px">
                         <el-row>
                             <el-col :span="12">
-                                <el-form-item label="项目编码" prop="code">
+                                <el-form-item label="項目編碼" prop="code">
                                     <el-input v-model="formData.code"/>
                                 </el-form-item>
                             </el-col>
                             <el-col :span="12">
-                                <el-form-item label="项目名称" prop="name">
+                                <el-form-item label="項目名稱" prop="name">
                                     <el-input v-model="formData.name"/>
                                 </el-form-item>
                             </el-col>
@@ -89,29 +89,29 @@
                                 </el-form-item>
                             </el-col>
                             <el-col :span="12">
-                                <el-form-item label="适用年龄">
+                                <el-form-item label="適用年齡">
                                     <el-input v-model="formData.age"/>
                                 </el-form-item>
                             </el-col>
                         </el-row>
                         <el-row>
                             <el-col :span="12">
-                                <el-form-item label="类型">
+                                <el-form-item label="類型">
                                     <el-select v-model="formData.type">
-                                        <el-option label="检查" value="1"></el-option>
-                                        <el-option label="检验" value="2"></el-option>
+                                        <el-option label="檢查" value="1"></el-option>
+                                        <el-option label="檢驗" value="2"></el-option>
                                     </el-select>
                                 </el-form-item>
                             </el-col>
                             <el-col :span="12">
-                                <el-form-item label="价格">
+                                <el-form-item label="價格">
                                     <el-input v-model="formData.price"/>
                                 </el-form-item>
                             </el-col>
                         </el-row>
                         <el-row>
                             <el-col :span="24">
-                                <el-form-item label="项目说明">
+                                <el-form-item label="項目說明">
                                     <el-input v-model="formData.remark" type="textarea"></el-input>
                                 </el-form-item>
                             </el-col>
@@ -126,24 +126,24 @@
                     </el-form>
                     <div slot="footer" class="dialog-footer">
                         <el-button @click="dialogFormVisible = false">取消</el-button>
-                        <el-button type="primary" @click="handleAdd()">确定</el-button>
+                        <el-button type="primary" @click="handleAdd()">確定</el-button>
                     </div>
                 </el-dialog>
             </div>
 
-            <!-- 编辑标签弹层 -->
+            <!-- 编辑標籤彈出框 -->
             <div class="add-form">
-                <el-dialog title="编辑检查项" :visible.sync="dialogFormVisible4Edit">
+                <el-dialog title="编辑檢查項" :visible.sync="dialogFormVisible4Edit">
                     <el-form ref="dataEditForm" :model="editFormData" :rules="rules" label-position="right"
                              label-width="100px">
                         <el-row>
                             <el-col :span="12">
-                                <el-form-item label="项目编码" prop="code">
+                                <el-form-item label="項目編碼" prop="code">
                                     <el-input v-model="editFormData.code"/>
                                 </el-form-item>
                             </el-col>
                             <el-col :span="12">
-                                <el-form-item label="项目名称" prop="name">
+                                <el-form-item label="項目名稱" prop="name">
                                     <el-input v-model="editFormData.name"/>
                                 </el-form-item>
                             </el-col>
@@ -159,29 +159,29 @@
                                 </el-form-item>
                             </el-col>
                             <el-col :span="12">
-                                <el-form-item label="适用年龄">
+                                <el-form-item label="適用年齡">
                                     <el-input v-model="editFormData.age"/>
                                 </el-form-item>
                             </el-col>
                         </el-row>
                         <el-row>
                             <el-col :span="12">
-                                <el-form-item label="类型">
+                                <el-form-item label="類型">
                                     <el-select v-model="editFormData.type">
-                                        <el-option label="检查" value="1"></el-option>
-                                        <el-option label="检验" value="2"></el-option>
+                                        <el-option label="檢查" value="1"></el-option>
+                                        <el-option label="檢驗" value="2"></el-option>
                                     </el-select>
                                 </el-form-item>
                             </el-col>
                             <el-col :span="12">
-                                <el-form-item label="价格">
+                                <el-form-item label="價格">
                                     <el-input v-model="editFormData.price"/>
                                 </el-form-item>
                             </el-col>
                         </el-row>
                         <el-row>
                             <el-col :span="24">
-                                <el-form-item label="项目说明">
+                                <el-form-item label="項目說明">
                                     <el-input v-model="editFormData.remark" type="textarea"></el-input>
                                 </el-form-item>
                             </el-col>
@@ -196,7 +196,7 @@
                     </el-form>
                     <div slot="footer" class="dialog-footer">
                         <el-button @click="dialogFormVisible4Edit = false">取消</el-button>
-                        <el-button type="primary" @click="handleEdit()">确定</el-button>
+                        <el-button type="primary" @click="handleEdit()">確定</el-button>
                     </div>
                 </el-dialog>
             </div>
@@ -225,8 +225,8 @@
             dialogFormVisible: false,//增加表单是否可见
             dialogFormVisible4Edit: false,//编辑表单是否可见
             rules: {//校验规则
-                code: [{required: true, message: '项目编码为必填项', trigger: 'blur'}],
-                name: [{required: true, message: '项目名称为必填项', trigger: 'blur'}]
+                code: [{required: true, message: '項目編碼为必填项', trigger: 'blur'}],
+                name: [{required: true, message: '項目名稱为必填项', trigger: 'blur'}]
             },
             openEdit: false,//一个标志变量,标记为是否打开编辑表单
             formDataChange: false,//一个标志变量,标记编辑表单中的数据是否发生改变
@@ -266,41 +266,11 @@
             },
             //添加
             handleAdd: function () {
-                console.log(this.formData);
-                this.$refs['dataAddForm'].validate((valid) => {
-                    if (valid) {
-                        this.dialogFormVisible = false;
-                        axios.post("/checkitem/add.do", this.formData).then((res) => {
-
-                            if (res.data.flag) {
-                                this.findPage();
-                                this.$message({
-                                    message: res.data.message,
-                                    type: 'success'
-                                })
-                            } else {//执行失败
-                                this.$message.error(res.data.message);
-                            }
-                        })
-                    } else {
-                        //校验不通过
-                        this.$message.error("数据校验不通过，请重新输入");
-                        return false;
-                    }
-                });
 
             },
             //分页查询
             findPage() {
-                var param = {
-                    pageSize: this.pagination.pageSize,
-                    currentPage: this.pagination.currentPage,
-                    queryString: this.pagination.queryString
-                };
-                axios.post("/checkitem/findPage.do", param).then((res) => {
-                    this.pagination.total = res.data.total;
-                    this.dataList = res.data.rows;
-                })
+                
             },
             // 重置表单
             resetForm() {
@@ -313,38 +283,15 @@
             },
             // 弹出编辑窗口
             handleUpdate(row) {
-                this.dialogFormVisible4Edit = true;
-                this.editFormData = {};
-                this.openEdit = true;
-                this.editFormData = this.deepClone(row);
-                this.deepCloneObj = this.deepClone(row);
-                this.formDataChange = false;
-                // axios.get("/checkitem/findById.do?id=" + row.id).then((res)=>{
-                //     if (res.data.flag) {
-                //         this.formData = res.data.data;
-                //     } else {
-                //         this.$message.error(res.data.message);
-                //     }
-                // })
+                
             },
             //深拷贝
             deepClone(obj) {
-                var target = {};
-                for (var key in obj) {
-                    if (Object.prototype.hasOwnProperty.call(obj, key)) {
-                        if (typeof obj[key] === 'object') {
-                            target[key] = this.deepClone(obj[key]);
-                        } else {
-                            target[key] = obj[key];
-                        }
-                    }
-                }
-                return target;
+                
             },
             //切换页码
             handleCurrentChange(currentPage) {
-                this.pagination.currentPage = currentPage;
-                this.findPage();
+                t
             },
 
             showMessage(r) {
@@ -360,30 +307,7 @@
 
             // 删除
             handleDelete(row) {
-                this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
-                    type: 'warning'
-                }).then(() => {
-                    axios.get("/checkitem/delete.do?id=" + row.id).then((res) => {
-                        if (res.data.flag) {
-                            this.$message({
-                                message: res.data.message,
-                                type: 'success'
-                            });
-                            this.findPage();
-                        } else {
-                            this.$message.error(res.data.message);
-                        }
-                    }).catch((r) => { //axios对象请求的catch， 网络请求不是2xx
-                        this.showMessage(r);
-                    })
-                }).catch(() => {
-                    this.$message({
-                        type: 'info',
-                        message: '已取消删除'
-                    });
-                });
+               
             },
             //判断对象值是否相等
             isObjectValueEqual(x, y) {
