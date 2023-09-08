@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.morgan.constant.MessageConstant;
 import com.morgan.entity.Result;
 import com.morgan.pojo.CheckItem;
 import com.morgan.service.CheckItemService;
@@ -21,12 +22,13 @@ public class CheckItemController {
 
     @RequestMapping("/add")
     public Result add(@RequestBody CheckItem checkItem){
-
-        checkItemService.add(checkItem);
-
-       
-
-        return null;
+        try{
+            checkItemService.add(checkItem);
+        } catch (Exception e){
+            e.printStackTrace();
+            return new Result(false, MessageConstant.ADD_CHECKITEM_FAIL);
+        }
+        return new Result(false, MessageConstant.ADD_CHECKITEM_SUCCESS);
 
     }
     
