@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!--映射配置文件：配置statement对象-->
+<!--映射配置文件-->
 <mapper namespace="com.morgan.dao.CheckItemDao">
-    <!--插入数据-->
+    <!--插入數據-->
     <insert id="add" parameterType="com.morgan.pojo.CheckItem">
         insert into t_checkitem(code,name,sex,age,price,type,remark,attention)
                       values
