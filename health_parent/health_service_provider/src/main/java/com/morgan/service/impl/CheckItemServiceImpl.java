@@ -12,12 +12,11 @@ import com.morgan.service.CheckItemService;
 @Transactional
 public class CheckItemServiceImpl implements CheckItemService{
 
-    
+
 
     @Override
     public void add(CheckItem CheckItem) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+        
     }
     
 }
