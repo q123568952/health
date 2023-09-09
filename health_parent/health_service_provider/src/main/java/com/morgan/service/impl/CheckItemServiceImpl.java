@@ -1,8 +1,10 @@
 package com.morgan.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.morgan.dao.CheckItemDao;
 import com.morgan.pojo.CheckItem;
 import com.morgan.service.CheckItemService;
 
@@ -13,10 +15,12 @@ import com.morgan.service.CheckItemService;
 public class CheckItemServiceImpl implements CheckItemService{
 
 
+    @Autowired
+    private CheckItemDao checkItemDao;
 
     @Override
     public void add(CheckItem CheckItem) {
-        
+        checkItemDao.add(CheckItem);
     }
     
 }
