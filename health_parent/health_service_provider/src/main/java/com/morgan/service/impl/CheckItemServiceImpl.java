@@ -10,7 +10,7 @@ import com.morgan.service.CheckItemService;
 
 // 檢查項服務
 
-@Service
+@Service(interfaceClass = CheckItemService.class)
 @Transactional
 public class CheckItemServiceImpl implements CheckItemService{
 
