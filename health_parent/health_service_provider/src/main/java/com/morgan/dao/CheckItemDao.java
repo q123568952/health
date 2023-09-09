@@ -1,4 +1,4 @@
-package com.morgan.service.impl.dao;
+package com.morgan.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 
