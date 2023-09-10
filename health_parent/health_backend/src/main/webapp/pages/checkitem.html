@@ -249,8 +249,8 @@
                     if(valid){
                         // 表單校驗成功,發送ajax請求,送出數據
                         console.log(this.formData);
-                        axios.post("/checkitem/add.do", this.formData),then((res)=>{
-                            dialogFormVisible =false;
+                        axios.post("/checkitem/add.do", this.formData).then((res)=>{
+                            this.dialogFormVisible = false;
                             if (res.data.flag){
                                 this.findPage();
                                 this.$message({
