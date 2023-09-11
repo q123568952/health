@@ -15,4 +15,7 @@
             where code =#{value} or name = #{value}
         </if>
     </select>
+    <select id="findCountByCheckItemId" parameterType="int" resultType="long">
+        select count(*) from t_checkgroup_checkitem where checkitem_id = #{checkitem_id}
+    </select>
 </mapper>
