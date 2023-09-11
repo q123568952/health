@@ -9,4 +9,5 @@ import com.morgan.pojo.CheckItem;
 public interface CheckItemService {
     public void add(CheckItem CheckItem);
     public PageResult findPage(QueryPageBean queryPageBean);
+    public void deleteById(Integer id);
 }
