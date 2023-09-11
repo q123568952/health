@@ -1,9 +1,12 @@
 package com.morgan.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.morgan.dao.CheckItemDao;
 import com.morgan.entity.PageResult;
@@ -34,7 +37,10 @@ public class CheckItemServiceImpl implements CheckItemService{
         PageHelper.startPage(currentPge, pageSize);
         // 用Mybatis分頁查詢插件
         PageHelper.startPage(currentPge, pageSize);
-        return null;
+        Page<CheckItem> pages = checkItemDao.selectByCondition(queryString);
+        long total = pages.getTotal();
+        List<CheckItem> rows = pages.getResult();
+         return new PageResult(total, rows);
     }
     
 }
