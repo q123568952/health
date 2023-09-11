@@ -4,7 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.github.pagehelper.PageHelper;
 import com.morgan.dao.CheckItemDao;
+import com.morgan.entity.PageResult;
+import com.morgan.entity.QueryPageBean;
 import com.morgan.pojo.CheckItem;
 import com.morgan.service.CheckItemService;
 
@@ -21,6 +24,17 @@ public class CheckItemServiceImpl implements CheckItemService{
     @Override
     public void add(CheckItem CheckItem) {
         checkItemDao.add(CheckItem);
+    }
+
+    @Override
+    public PageResult findPage(QueryPageBean queryPageBean) {
+        Integer currentPge =queryPageBean.getCurrentPage();
+        Integer pageSize =queryPageBean.getPageSize();
+        String queryString=queryPageBean.getQueryString();
+        PageHelper.startPage(currentPge, pageSize);
+        // 用Mybatis分頁查詢插件
+        PageHelper.startPage(currentPge, pageSize);
+        return null;
     }
     
 }
