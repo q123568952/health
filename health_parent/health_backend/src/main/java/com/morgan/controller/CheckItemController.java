@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.morgan.constant.MessageConstant;
+import com.morgan.entity.PageResult;
+import com.morgan.entity.QueryPageBean;
 import com.morgan.entity.Result;
 import com.morgan.pojo.CheckItem;
 import com.morgan.service.CheckItemService;
@@ -29,6 +31,13 @@ public class CheckItemController {
         }
         return new Result(true, MessageConstant.ADD_CHECKITEM_SUCCESS);
 
+    }
+
+     @RequestMapping("/findPage")
+    public PageResult findPage(@RequestBody QueryPageBean queryPageBean){
+       
+            PageResult pageResult = checkItemService.findPage(queryPageBean);
+            return pageResult;
     }
     
 }
