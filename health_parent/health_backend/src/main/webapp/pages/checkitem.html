@@ -46,7 +46,7 @@
                 <el-table-column prop="remark" label="項目说明" align="center"></el-table-column>
                 <el-table-column label="操作" align="center">
                     <template slot-scope="scope">
-                        <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">编辑</el-button>
+                        <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">編輯</el-button>
                         <el-button size="mini" type="danger" @click="handleDelete(scope.row)">删除</el-button>
                     </template>
                 </el-table-column>
@@ -317,7 +317,31 @@
 
             // 删除
             handleDelete(row) {
-               
+                this.$confirm("您確定要刪除此數據?","提示",{
+                    type: "warning"
+                }).then(()=>{
+                    axios.get("/checkitem/delete.do?=" + row.id).then((res)=>{
+                        if(res.data.flag){
+                            // 表示執行成功
+                            this.$message({
+                                    message: res.data.message,
+                                    type: "success"
+                                });
+                            this.findPage();
+                        } else{
+                            // 表示執行失敗
+                            this.$message.error(
+                                res.data.message,
+                                );
+                        }
+                    })
+                }).catch(()=>{
+                    this.$message({
+                                    message: "操作已取消",
+                                    type: "info"
+                                });
+                });
+              
             },
             //判断对象值是否相等
             isObjectValueEqual(x, y) {
