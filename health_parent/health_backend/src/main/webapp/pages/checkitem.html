@@ -320,7 +320,7 @@
                 this.$confirm("您確定要刪除此數據?","提示",{
                     type: "warning"
                 }).then(()=>{
-                    axios.get("/checkitem/delete.do?=" + row.id).then((res)=>{
+                    axios.get("/checkitem/delete.do?id=" + row.id).then((res)=>{
                         if(res.data.flag){
                             // 表示執行成功
                             this.$message({
