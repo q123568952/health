@@ -15,4 +15,8 @@ public interface CheckItemDao {
 
     public void deleteById(Integer id);
 
+    public CheckItem selectById(Integer id);
+
+    public void edit(CheckItem checkItem);
+
 }
