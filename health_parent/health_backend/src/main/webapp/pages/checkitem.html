@@ -240,6 +240,31 @@
         methods: {
             //编辑
             handleEdit() {
+                this.$refs["dataEditForm"].validate((valid)=>{
+                    if(valid){
+                        // 表單校驗成功,發送ajax請求,送出數據
+                        console.log(this.editFormData);
+                        axios.post("/checkitem/edit.do", this.editFormData).then((res)=>{
+                            this.dialogFormVisible4Edit = false;
+                            if (res.data.flag){
+                                this.findPage();
+                                this.$message({
+                                    message: res.data.message,
+                                    type: "success"
+                                });
+                            } else {
+                                this.$message.error(
+                                res.data.message,
+                                );
+                            }
+                        })
+                    }else{
+                        // 校驗不通過
+                        this.$message.error("數據校驗失敗，請檢查輸入訊息是否正確");
+                        return false;
+                    };
+                })
+
                
             },
             //添加
@@ -301,7 +326,7 @@
                 // 彈出編輯窗口
                 this.dialogFormVisible4Edit = true;
                 // 回顯數據
-                axios.get("//checkitem/findById.do=?id="+ row.id).then((res=>{
+                axios.get("/checkitem/findById.do=?id="+ row.id).then((res=>{
                     if(res.data.flag){
                         this.editFormData = res.data.data;
                     } else{
