@@ -21,4 +21,37 @@
     <delete id="deleteById" parameterType="int">
         delete from t_checkitem where id = #{id}
     </delete>
+    <select id="selectById" parameterType="int" resultType="com.morgan.pojo.CheckItem">
+        select * from t_checkitem where id =#{id}
+    </select>
+    <update id="edit" parameterType="com.morgan.pojo.CheckItem">
+        update t_checkitem 
+        <set>
+            <if test="code != null">
+                code = #{code},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="sex != null">
+                sex = #{sex},
+            </if>
+            <if test="age != null">
+                age = #{age},
+            </if>
+            <if test="price != null">
+                price = #{price},
+            </if>
+            <if test="type != null">
+                type = #{type},
+            </if>
+            <if test="remark != null">
+                remark = #{remark},
+            </if>
+            <if test="attention != null">
+                attention = #{attention},
+            </if>
+        </set>
+        where id = #{id}
+    </update> 
 </mapper>
