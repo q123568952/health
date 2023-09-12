@@ -1,6 +1,8 @@
 package com.morgan.service;
 
 
+import java.util.List;
+
 import com.morgan.entity.PageResult;
 import com.morgan.entity.QueryPageBean;
 import com.morgan.pojo.CheckItem;
@@ -12,4 +14,5 @@ public interface CheckItemService {
     public void deleteById(Integer id);
     public CheckItem findById(Integer id);
     public void edit(CheckItem checkItem);
+    public List<CheckItem> findAll();
 }
