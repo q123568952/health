@@ -292,12 +292,22 @@
             },
             // 弹出添加窗口
             handleCreate() {
+                // 彈出編輯窗口
                 this.dialogFormVisible = true;
                 this.resetForm();
             },
             // 弹出编辑窗口
             handleUpdate(row) {
-                
+                // 彈出編輯窗口
+                this.dialogFormVisible4Edit = true;
+                // 回顯數據
+                axios.get("//checkitem/findById.do=?id="+ row.id).then((res=>{
+                    if(res.data.flag){
+                        this.editFormData = res.data.data;
+                    } else{
+                        this.$message.error(res.data.message);
+                    }
+                }))
             },
             //深拷贝
             deepClone(obj) {
